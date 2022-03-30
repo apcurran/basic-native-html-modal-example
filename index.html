@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native HTML Modal</title>
+    <style>
+        dialog {
+            padding: 0;
+            border: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <button class="open-modal">
+        Open Modal
+    </button>
+    <dialog id="fav-dialog">
+        <p>Hello</p>
+        <button class="fav-dialog__close-btn">Close</button>
+    </dialog>
+</body>
+
+<script>
+    const openModalBtn = document.querySelector(".open-modal");
+    const modalElem = document.getElementById("fav-dialog");
+    const modalCloseBtn = document.querySelector(".fav-dialog__close-btn");
+
+    openModalBtn.addEventListener("click", () => {
+        modalElem.showModal();
+    });
+
+    // close modal on outside click
+    modalElem.addEventListener("click", (event) => {
+        if (event.target === modalElem) modalElem.close();
+    });
+
+    modalCloseBtn.addEventListener("click", () => {
+        modalElem.close();
+    });
+</script>
+
+</html>
